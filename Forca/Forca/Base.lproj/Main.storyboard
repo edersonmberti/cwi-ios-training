@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,28 +31,34 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="YNn-y3-lqy">
-                                <rect key="frame" x="140" y="362" width="134" height="136"/>
+                                <rect key="frame" x="131" y="362" width="152.5" height="214"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A dica é: ANIMAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ln-TN-JGR">
-                                        <rect key="frame" x="1.5" y="0.0" width="131.5" height="18.5"/>
+                                        <rect key="frame" x="10.5" y="0.0" width="131.5" height="18.5"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_   _   _   _   _   _" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oU9-vw-YSt">
-                                        <rect key="frame" x="0.0" y="46.5" width="134" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="152.5" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FT6-c8-VOG">
-                                        <rect key="frame" x="49.5" y="102" width="35.5" height="34"/>
+                                        <rect key="frame" x="58.5" y="102" width="35.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                         <connections>
+                                            <action selector="handleChangeText:" destination="BYZ-38-t0r" eventType="editingChanged" id="92K-YX-koe"/>
                                             <action selector="onSubmit:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="TYt-vS-w1s"/>
                                         </connections>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ru8-Zs-BTm">
+                                        <rect key="frame" x="51" y="164" width="50" height="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5Ln-TN-JGR" firstAttribute="centerX" secondItem="YNn-y3-lqy" secondAttribute="centerX" id="MnD-E8-52t"/>
@@ -59,6 +66,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="YNn-y3-lqy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7ur-JE-AlI"/>
@@ -70,9 +78,11 @@
                             <constraint firstItem="O5z-up-rDg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="rIR-G8-X7G"/>
                             <constraint firstItem="qaW-IZ-fZ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="zGj-xW-rrp"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="guessLabel" destination="ru8-Zs-BTm" id="kd3-Ya-tZy"/>
+                        <outlet property="letterTextField" destination="FT6-c8-VOG" id="aTD-Ap-yir"/>
+                        <outlet property="maskedWordLabel" destination="oU9-vw-YSt" id="tHG-KJ-FBG"/>
                         <outlet property="puppetImageView" destination="30p-9p-iAx" id="eHP-B4-dGa"/>
                     </connections>
                 </viewController>
