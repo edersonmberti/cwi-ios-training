@@ -13,7 +13,7 @@ class HangingGame {
     let maxErrors = 5
     
     internal init(word: String, guess: String) {
-        self.word = word
+        self.word = word.comparable
         self.guess = guess
         self.maskedWord = word.map { _ in "_" }.joined()
     }
@@ -31,20 +31,44 @@ class HangingGame {
     private(set) var win = false
     
     func attemptLetter(_ letter: String) {
-        if previousAttempts.contains(letter) {
+        guard let informedLetter = letter.first?.comparable else { return }
+        
+        if previousAttempts.contains(informedLetter) {
             // TODO :- Validate repeted word
             
             return
         }
         
-        previousAttempts.append(letter)
+        previousAttempts.append(informedLetter)
         
-        guard word.contains(letter) else {
+        guard word.contains(informedLetter) else {
             errors += 1
             return
         }
         
-        maskedWord = replaceLetter(to: letter, in: maskedWord, with: word)
+        maskedWord = replaceLetter(to: informedLetter, in: maskedWord, with: word)
+        
+        if word == maskedWord {
+            win = true
+        }
     }
     
 }
+
+extension HangingGame {
+    class func random() -> HangingGame {
+        guard let item = words.randomElement()
+        else {
+            return HangingGame(word: "Desnatado", guess: "Microfone")
+        }
+        
+        return HangingGame(word: item.key, guess: item.value)
+    }
+}
+
+let words = [
+    "abelha": "inseto",
+    "formiga": "inseto",
+    "macaco": "animal",
+    "cabra": "animal"
+]

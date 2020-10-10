@@ -20,6 +20,9 @@
 		928CCDA6252D014000653608 /* ForcaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CCDA5252D014000653608 /* ForcaTests.swift */; };
 		928CCDB1252D014100653608 /* ForcaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CCDB0252D014100653608 /* ForcaUITests.swift */; };
 		928CCDBF252D1DE900653608 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928CCDBE252D1DE900653608 /* UIViewController+Keyboard.swift */; };
+		92E94B4D2531DC0C0077EE18 /* HangingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E94B4C2531DC0C0077EE18 /* HangingGameTests.swift */; };
+		92E94B522531DE9B0077EE18 /* String+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E94B512531DE9B0077EE18 /* String+Comparable.swift */; };
+		92E94B572531DF530077EE18 /* Character+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E94B562531DF530077EE18 /* Character+Comparable.swift */; };
 		CF4CAD7512F04DBE526112DE /* Pods_Forca_ForcaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652A1F13CB14C332E03020AB /* Pods_Forca_ForcaUITests.framework */; };
 		E385990BF4CEBAE8329B5055 /* Pods_ForcaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E58031A9FEB10069D812EEB /* Pods_ForcaTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,9 @@
 		928CCDB0252D014100653608 /* ForcaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcaUITests.swift; sourceTree = "<group>"; };
 		928CCDB2252D014100653608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		928CCDBE252D1DE900653608 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		92E94B4C2531DC0C0077EE18 /* HangingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangingGameTests.swift; sourceTree = "<group>"; };
+		92E94B512531DE9B0077EE18 /* String+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Comparable.swift"; sourceTree = "<group>"; };
+		92E94B562531DF530077EE18 /* Character+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Comparable.swift"; sourceTree = "<group>"; };
 		DA3A4F04C30EB44EDEDE0DBE /* Pods-ForcaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForcaTests.release.xcconfig"; path = "Target Support Files/Pods-ForcaTests/Pods-ForcaTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB166B567861BB5F6489B880 /* Pods_Forca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Forca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54AD532ABCA576148F79E0C /* Pods-Forca-ForcaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Forca-ForcaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Forca-ForcaUITests/Pods-Forca-ForcaUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 			children = (
 				928CCDBE252D1DE900653608 /* UIViewController+Keyboard.swift */,
 				92210866252FABA3004944DB /* String+AttributedText.swift */,
+				92E94B512531DE9B0077EE18 /* String+Comparable.swift */,
+				92E94B562531DF530077EE18 /* Character+Comparable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 			children = (
 				928CCDA5252D014000653608 /* ForcaTests.swift */,
 				928CCDA7252D014000653608 /* Info.plist */,
+				92E94B4C2531DC0C0077EE18 /* HangingGameTests.swift */,
 			);
 			path = ForcaTests;
 			sourceTree = "<group>";
@@ -427,11 +436,13 @@
 			files = (
 				928CCD93252D013E00653608 /* ViewController.swift in Sources */,
 				928CCD8F252D013E00653608 /* AppDelegate.swift in Sources */,
+				92E94B522531DE9B0077EE18 /* String+Comparable.swift in Sources */,
 				92210867252FABA3004944DB /* String+AttributedText.swift in Sources */,
 				928CCDBF252D1DE900653608 /* UIViewController+Keyboard.swift in Sources */,
 				92210870252FB075004944DB /* HangingGame.swift in Sources */,
 				928CCD91252D013E00653608 /* SceneDelegate.swift in Sources */,
 				92210876252FBAE9004944DB /* ReplaceLetter.swift in Sources */,
+				92E94B572531DF530077EE18 /* Character+Comparable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E94B4D2531DC0C0077EE18 /* HangingGameTests.swift in Sources */,
 				928CCDA6252D014000653608 /* ForcaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

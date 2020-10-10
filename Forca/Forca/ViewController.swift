@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var game: HangingGame = HangingGame(word: "CACHORRO", guess: "ANIMAL")
+    var game: HangingGame = HangingGame.random()
     
     var index: Int = 1
 
@@ -31,11 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onRestart(_ sender: Any) {
-        index += 1
-        
-        if (index == 5) {
-            index = 1
-        }
+        newGame()
     }
     
     override func viewDidLoad() {
@@ -51,11 +47,51 @@ extension ViewController {
     private func updateScreen() {
         guessLabel.text = "A dica é: \(game.guess)"
         maskedWordLabel.attributedText = game.maskedWord.spaced
-        guessLabel.attributedText = game.previousAttempts.joined().spaced
+        guessLabel.attributedText = formatPreviousAttempts()
         
+        letterTextField.text = ""
         updatePuppet()
+        
+        if game.defeat {
+            alertLoser()
+        } else if game.win {
+            alertWinner()
+        }
     }
     
+    private func formatPreviousAttempts() -> NSAttributedString {
+        game.previousAttempts.reduce(NSMutableAttributedString()){ (text, letter) in
+            if game.word.contains(letter) {
+                text.append(letter.setGreenColor)
+            } else {
+                text.append(letter.setRedColor)
+            }
+            
+            return text
+        }.spaced
+    }
+    
+    var action: UIAlertAction { UIAlertAction(title: "Jogar novamente", style: .default) { _ in
+        self.newGame()
+    }}
+    
+    private func alertLoser() {
+        let alert = UIAlertController(title: "Deu ruim!", message: "Te liga na próxima.", preferredStyle: .alert)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func alertWinner() {
+        let alert = UIAlertController(title: "Boa meu padrinho!", message: "Mandou bem demais.", preferredStyle: .alert)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func newGame() {
+        game = HangingGame.random()
+        updateScreen()
+    }
+ 
     private func updatePuppet() {
         let image: UIImage?
         
