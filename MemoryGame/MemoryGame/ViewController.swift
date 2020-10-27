@@ -27,6 +27,21 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    private func showWinAlert() {
+        var action: UIAlertAction { UIAlertAction(title: "Bacana, bora de novo", style: .default) { _ in
+            self.newGame()
+        }}
+        
+        let alert = UIAlertController(title: "Boa, você terminou!", message: "Você precisou de X tentativas para finalziar o jogo da memória.", preferredStyle: .alert)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func newGame() {
+        game.restart()
+        collectionView.reloadData()
+    }
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -35,6 +50,10 @@ extension ViewController: UICollectionViewDelegate {
         
         game.choose(memoryCard: game.cards[indexPath.item])
         collectionView.reloadData()
+        
+        if (game.win) {
+            showWinAlert()
+        }
     }
 }
 

@@ -10,6 +10,7 @@ import Foundation
 class Game {
 
     private(set) var cards: [MemoryCard] = []
+    private(set) var numberOfAttempts: Int = 0
     private(set) var win: Bool = false
     
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {
@@ -42,6 +43,7 @@ class Game {
     
     func restart() {
         self.cards = getNewCards()
+        self.win = false
         self.shuffledCards()
         self.indexOfTheOneAndOnlyFaceUpCard = nil
     }
@@ -52,6 +54,7 @@ class Game {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
+                    numberOfAttempts += 1
                 }
                 self.cards[chosenIndex].isFaceUp = true
             } else {
