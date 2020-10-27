@@ -12,6 +12,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     static let identifier = "CardCollectionViewCell"
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +21,10 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with card: Game.MemoryCard) {
-        imageView.image = UIImage(named: card.content)
+        let imageName = card.isFaceUp ? card.content : "memory_game"
+        
+        self.isHidden = card.isMatched
+        imageView.image = UIImage(named: imageName)
     }
     
     static func nib() -> UINib {
@@ -28,12 +32,12 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        self.backgroundColor = .red
-        self.layer.cornerRadius = 8
-        self.layer.shadowOffset = .zero
-        self.layer.shadowOpacity = 0.50
-        self.layer.shadowRadius = 12
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.masksToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = .zero
+        containerView.layer.shadowOpacity = 0.3
+        containerView.layer.shadowRadius = 8
+        containerView.layer.cornerRadius = 8
     }
  
 }

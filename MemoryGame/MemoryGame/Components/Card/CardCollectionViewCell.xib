@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,22 +17,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memory_game" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-h8-gnj">
-                        <rect key="frame" x="12" y="12" width="86" height="86"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-TO-GCD">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memory_game" translatesAutoresizingMaskIntoConstraints="NO" id="1gF-h8-gnj">
+                                <rect key="frame" x="12" y="12" width="86" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="60b-5Y-dLt"/>
+                                    <constraint firstAttribute="width" constant="86" id="xno-5K-Efi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="86" id="60b-5Y-dLt"/>
-                            <constraint firstAttribute="width" constant="86" id="xno-5K-Efi"/>
+                            <constraint firstAttribute="height" constant="110" id="AV7-Vw-3oG"/>
+                            <constraint firstAttribute="width" constant="110" id="EMS-WI-dcQ"/>
+                            <constraint firstItem="1gF-h8-gnj" firstAttribute="centerX" secondItem="rQ4-TO-GCD" secondAttribute="centerX" id="Ubb-fV-rrI"/>
+                            <constraint firstItem="1gF-h8-gnj" firstAttribute="centerY" secondItem="rQ4-TO-GCD" secondAttribute="centerY" id="cjF-7V-O6J"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="1gF-h8-gnj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="nTb-93-blq"/>
-                <constraint firstItem="1gF-h8-gnj" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="swM-Nq-3Jk"/>
+                <constraint firstItem="rQ4-TO-GCD" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="KPx-W2-PYP"/>
+                <constraint firstItem="rQ4-TO-GCD" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="hkz-gr-X5e"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                    <color key="value" systemColor="systemTealColor"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOffset">
+                    <integer key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="containerView" destination="rQ4-TO-GCD" id="yj4-JZ-Hdf"/>
                 <outlet property="imageView" destination="1gF-h8-gnj" id="SZE-fs-rki"/>
             </connections>
             <point key="canvasLocation" x="-194" y="109"/>
@@ -39,5 +70,11 @@
     </objects>
     <resources>
         <image name="memory_game" width="286" height="194"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

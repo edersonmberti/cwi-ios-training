@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     @IBAction func onRestart(_ sender: UIButton) {
         game.restart()
+    
+        collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -25,14 +27,14 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
 }
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        print("You tapped me: \(indexPath.item)")
+        game.choose(memoryCard: game.cards[indexPath.item])
+        collectionView.reloadData()
     }
 }
 
